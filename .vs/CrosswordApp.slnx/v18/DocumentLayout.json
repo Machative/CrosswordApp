@@ -1,0 +1,234 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|c:\\users\\mach\\source\\repos\\crosswordapp\\creator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|solutionrelative:creator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|c:\\users\\mach\\source\\repos\\crosswordapp\\creator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|solutionrelative:creator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31EB20EC-3A3E-48C0-9F50-52B45DFC8050}|CrosswordApp.csproj|C:\\Users\\mach\\source\\repos\\CrosswordApp\\creator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{31EB20EC-3A3E-48C0-9F50-52B45DFC8050}|CrosswordApp.csproj|solutionrelative:creator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|c:\\users\\mach\\source\\repos\\crosswordapp\\puzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|solutionrelative:puzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{31EB20EC-3A3E-48C0-9F50-52B45DFC8050}|CrosswordApp.csproj|C:\\Users\\mach\\source\\repos\\CrosswordApp\\puzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{31EB20EC-3A3E-48C0-9F50-52B45DFC8050}|CrosswordApp.csproj|solutionrelative:puzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|c:\\users\\mach\\source\\repos\\crosswordapp\\puzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|solutionrelative:puzzle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|c:\\users\\mach\\source\\repos\\crosswordapp\\xwdapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|solutionrelative:xwdapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|c:\\users\\mach\\source\\repos\\crosswordapp\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|solutionrelative:menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|c:\\users\\mach\\source\\repos\\crosswordapp\\solver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|solutionrelative:solver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|c:\\users\\mach\\source\\repos\\crosswordapp\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|solutionrelative:cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|c:\\users\\mach\\source\\repos\\crosswordapp\\puzzle.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|solutionrelative:puzzle.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|c:\\users\\mach\\source\\repos\\crosswordapp\\xwdobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|solutionrelative:xwdobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|c:\\users\\mach\\source\\repos\\crosswordapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9F96193-4426-6AFD-AED5-E99C1619B766}|CrosswordApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "XWDApp.cs",
+              "DocumentMoniker": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\XWDApp.cs",
+              "RelativeDocumentMoniker": "XWDApp.cs",
+              "ToolTip": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\XWDApp.cs",
+              "RelativeToolTip": "XWDApp.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAYwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T17:23:11.022Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Menu.cs",
+              "DocumentMoniker": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Menu.cs",
+              "RelativeDocumentMoniker": "Menu.cs",
+              "ToolTip": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Menu.cs",
+              "RelativeToolTip": "Menu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T17:54:50.991Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Creator.cs",
+              "DocumentMoniker": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Creator.cs",
+              "RelativeDocumentMoniker": "Creator.cs",
+              "ToolTip": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Creator.cs",
+              "RelativeToolTip": "Creator.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAswBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T18:01:45.441Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Solver.cs",
+              "DocumentMoniker": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Solver.cs",
+              "RelativeDocumentMoniker": "Solver.cs",
+              "ToolTip": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Solver.cs",
+              "RelativeToolTip": "Solver.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAADwvw8AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T18:15:55.796Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Puzzle.cs",
+              "DocumentMoniker": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Puzzle.cs",
+              "RelativeDocumentMoniker": "Puzzle.cs",
+              "ToolTip": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Puzzle.cs",
+              "RelativeToolTip": "Puzzle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T21:21:38.018Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Creator.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Creator.cs",
+              "RelativeDocumentMoniker": "Creator.cs",
+              "ToolTip": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Creator.cs [Design]",
+              "RelativeToolTip": "Creator.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T23:55:22.503Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Puzzle.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Puzzle.cs",
+              "RelativeDocumentMoniker": "Puzzle.cs",
+              "ToolTip": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Puzzle.cs [Design]",
+              "RelativeToolTip": "Puzzle.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T23:55:15.505Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Puzzle.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Puzzle.cs",
+              "RelativeDocumentMoniker": "Puzzle.cs",
+              "ToolTip": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Puzzle.cs [Design]",
+              "RelativeToolTip": "Puzzle.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T00:20:26.375Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Creator.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Creator.cs",
+              "RelativeDocumentMoniker": "Creator.cs",
+              "ToolTip": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Creator.cs [Design]",
+              "RelativeToolTip": "Creator.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T00:19:49.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Cell.cs",
+              "DocumentMoniker": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Cell.cs",
+              "RelativeDocumentMoniker": "Cell.cs",
+              "ToolTip": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Cell.cs",
+              "RelativeToolTip": "Cell.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T21:56:02.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Puzzle.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Puzzle.Designer.cs",
+              "RelativeDocumentMoniker": "Puzzle.Designer.cs",
+              "ToolTip": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Puzzle.Designer.cs",
+              "RelativeToolTip": "Puzzle.Designer.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAASwCkAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T00:40:01.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "XWDObject.cs",
+              "DocumentMoniker": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\XWDObject.cs",
+              "RelativeDocumentMoniker": "XWDObject.cs",
+              "ToolTip": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\XWDObject.cs",
+              "RelativeToolTip": "XWDObject.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAowDsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T20:40:25.605Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\mach\\source\\repos\\CrosswordApp\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T18:31:10.673Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
