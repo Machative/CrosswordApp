@@ -18,3 +18,4 @@ C:\Users\mach\source\repos\CrosswordApp\obj\Debug\net10.0-windows\refint\Crosswo
 C:\Users\mach\source\repos\CrosswordApp\obj\Debug\net10.0-windows\CrosswordApp.pdb
 C:\Users\mach\source\repos\CrosswordApp\obj\Debug\net10.0-windows\CrosswordApp.genruntimeconfig.cache
 C:\Users\mach\source\repos\CrosswordApp\obj\Debug\net10.0-windows\ref\CrosswordApp.dll
+C:\Users\mach\source\repos\CrosswordApp\obj\Debug\net10.0-windows\CrosswordApp.sourcelink.json

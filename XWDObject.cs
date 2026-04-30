@@ -41,9 +41,13 @@ namespace CrosswordApp
             {
                 for(int col = 0; col < height; col++)
                 {
-                    if(row==0 || col == 0 || grid[row - 1,col].Character=='~' || grid[row,col-1].Character=='~')
+                    if(!grid[row,col].isBlack() && (row==0 || col == 0 || grid[row - 1,col].Character=='~' || grid[row,col-1].Character=='~'))
                     {
                         grid[row,col].ClueNum = ++prevNum;
+                    }
+                    else
+                    {
+                        grid[row, col].ClueNum = -1;
                     }
                 }
             }

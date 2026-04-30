@@ -73,6 +73,7 @@ namespace CrosswordApp
 
         private void Puzzle_Click(object sender, MouseEventArgs e)
         {
+            this.Focus(); //TODO: Need to figure out how you want to handle key clicks, when to type into crossword vs clue box. maybe good enough like this
             selection sel = new selection(pixelsToPosition(e.Location.X, e.Location.Y),selected.dir);
             if (e.Button == MouseButtons.Left)
             {
@@ -86,10 +87,13 @@ namespace CrosswordApp
 
         private void Puzzle_KeyUp(object sender, KeyEventArgs e)
         {
-            Debug.WriteLine("hello?");
-            if(e.KeyValue > 64 && e.KeyValue < 0x91)
+            //TODO: Should move this method (and probably other things) into Creator and have Puzzle pass selection (and others) to Creator, so you can keep puzzle generic between creator and solver
+            if(e.KeyValue >=65 && e.KeyValue <= 90 && !xwd.getCell(selected.row, selected.col).isBlack())
             {
-                Debug.WriteLine(e.KeyCode.ToString());
+                xwd.getCell(selected.row, selected.col).Character = (char)e.KeyValue;
+                //Go to the next cell after entering this one
+                selected = nextCell(selected);
+                panel.Refresh();
             }
         }
 
@@ -106,6 +110,43 @@ namespace CrosswordApp
                 selected = sel;
             }
             panel.Refresh();
+        }
+
+        private selection nextCell(selection sel)
+        {
+            if(sel.dir == selection.direction.DOWN)
+            {
+                sel.row++;
+                while(sel.row >= xwd.getHeight() || xwd.getCell(sel.row,sel.col).isBlack())
+                {
+                    if (sel.row >= xwd.getHeight())
+                    {
+                        sel.row=0;
+                        sel.col++;
+                    }
+                    else
+                    {
+                        sel.row++;
+                    }
+                }
+            }
+            else
+            {
+                sel.col++;
+                while (sel.col >= xwd.getWidth() || xwd.getCell(sel.row, sel.col).isBlack())
+                {
+                    if (sel.col >= xwd.getWidth())
+                    {
+                        sel.col = 0;
+                        sel.row++;
+                    }
+                    else
+                    {
+                        sel.col++;
+                    }
+                }
+            }
+            return sel;
         }
 
         private void panel_Paint(object sender, PaintEventArgs e)
@@ -131,6 +172,8 @@ namespace CrosswordApp
 
             //Draw cells
             position[] selectedCells = getSelectionPositions(selected);
+            Font clueNumFont = new Font("Arial", 5); //TODO: Font size should depend on puzzle size
+            Font charFont = new Font("Arial", 14); //TODO: Same as above
 
             for(int row = 0; row < xwd.getHeight(); row++) {
                 for (int col = 0; col < xwd.getWidth(); col++)
@@ -153,7 +196,8 @@ namespace CrosswordApp
                     }//Otherwise, draw cell number and character where applicable
                     else
                     {
-
+                        if(curCell.ClueNum>0) g.DrawString(""+curCell.ClueNum, clueNumFont, new SolidBrush(Color.Black), 1 + (col * cellWidth), 1 + (row * cellHeight));
+                        if (curCell.Character >= 65 && curCell.Character <= 90) g.DrawString(""+curCell.Character, charFont, new SolidBrush(Color.Black), 3 + (col * cellWidth), 3 + (row * cellHeight));
                     }
 
                 }
