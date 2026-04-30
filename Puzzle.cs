@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
@@ -123,6 +124,7 @@ namespace CrosswordApp
                     {
                         sel.row=0;
                         sel.col++;
+                        if (sel.col >= xwd.getWidth()) sel.col = 0;
                     }
                     else
                     {
@@ -139,6 +141,7 @@ namespace CrosswordApp
                     {
                         sel.col = 0;
                         sel.row++;
+                        if (sel.row >= xwd.getWidth()) sel.row = 0;
                     }
                     else
                     {
