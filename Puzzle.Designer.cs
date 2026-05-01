@@ -52,7 +52,6 @@ namespace CrosswordApp
             MinimumSize = new Size(400, 400);
             Name = "Puzzle";
             Size = new Size(400, 400);
-            KeyUp += Puzzle_KeyUp;
             ResumeLayout(false);
         }
 

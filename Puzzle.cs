@@ -68,20 +68,26 @@ namespace CrosswordApp
         {
             InitializeComponent();
 
-            if (obj == null) xwd = new XWDObject(15, 15);
-            else xwd = obj;
+            if (obj == null) loadXWD(new XWDObject(15, 15));
+            else loadXWD(obj);
+        }
+
+        public void loadXWD(XWDObject xwdObj)
+        {
+            xwd = xwdObj;
 
             selected = new selection(0, 0, selection.direction.ACROSS);
             cellWidth = this.Width / xwd.getWidth();
             cellHeight = this.Height / xwd.getHeight();
+
+            Refresh();
         }
 
-        private void Puzzle_KeyUp(object sender, KeyEventArgs e)
+        public void EnterChar(char key)
         {
-            //TODO: Should move this method (and probably other things) into Creator and command puzzle from there
-            if(e.KeyValue >=65 && e.KeyValue <= 90 && !xwd.getCell(selected.row, selected.col).isBlack())
+            if (!xwd.getCell(selected.row, selected.col).isBlack()) //shouldn't ever be able to select blacked out cell, but just in case
             {
-                xwd.getCell(selected.row, selected.col).Character = (char)e.KeyValue;
+                xwd.getCell(selected.row, selected.col).Character = key;
                 //Go to the next cell after entering this one
                 selected = nextCell(selected);
                 Refresh();

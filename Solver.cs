@@ -18,6 +18,8 @@ namespace CrosswordApp
 
             //TODO: Add code to load from cache if available
             //Otherwise, load with null (default empty crossword)
+
+            //TODO: The solver should keep track of two xwd objects: the guess and the goal
             puzzlePanel.Controls.Add(new Puzzle());
         }
 

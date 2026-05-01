@@ -10,7 +10,7 @@ namespace CrosswordApp
         public char Character;
         public String acrossClue;
         public String downClue;
-        public Cell(int num = -1, char ch = ' ', String aClue = "", String dClue = "")
+        public Cell(char ch = ' ', String aClue = "", String dClue = "", int num=-1)
         {
             ClueNum = num;
             Character = ch;
