@@ -38,22 +38,13 @@ namespace CrosswordApp
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             goToMenu = new Button();
+            puzzlePanel = new Panel();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(376, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(39, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Solver";
             // 
             // goToMenu
             // 
-            goToMenu.Location = new Point(3, 3);
+            goToMenu.Location = new Point(3, 0);
             goToMenu.Name = "goToMenu";
             goToMenu.Size = new Size(75, 23);
             goToMenu.TabIndex = 1;
@@ -61,12 +52,19 @@ namespace CrosswordApp
             goToMenu.UseVisualStyleBackColor = true;
             goToMenu.Click += goToMenu_Click;
             // 
+            // puzzlePanel
+            // 
+            puzzlePanel.Location = new Point(46, 52);
+            puzzlePanel.Name = "puzzlePanel";
+            puzzlePanel.Size = new Size(450, 450);
+            puzzlePanel.TabIndex = 2;
+            // 
             // Solver
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(puzzlePanel);
             Controls.Add(goToMenu);
-            Controls.Add(label1);
             Name = "Solver";
             Size = new Size(1189, 719);
             ResumeLayout(false);
@@ -75,7 +73,7 @@ namespace CrosswordApp
 
         #endregion
 
-        private Label label1;
         private Button goToMenu;
+        private Panel puzzlePanel;
     }
 }

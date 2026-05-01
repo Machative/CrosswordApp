@@ -34,6 +34,10 @@ namespace CrosswordApp
                 this.col = pos.col;
                 this.dir = dir;
             }
+            public position asPos()
+            {
+                return new position(row, col);
+            }
 
             public enum direction
             {
@@ -72,34 +76,22 @@ namespace CrosswordApp
             cellHeight = this.Height / xwd.getHeight();
         }
 
-        private void Puzzle_Click(object sender, MouseEventArgs e)
-        {
-            this.Focus(); //TODO: Need to figure out how you want to handle key clicks, when to type into crossword vs clue box. maybe good enough like this
-            selection sel = new selection(pixelsToPosition(e.Location.X, e.Location.Y),selected.dir);
-            if (e.Button == MouseButtons.Left)
-            {
-                updateSelection(sel);
-            }else if(e.Button == MouseButtons.Right)
-            {
-                xwd.getCell(sel.row, sel.col).toggleBlack();
-                panel.Refresh();
-            }
-        }
-
         private void Puzzle_KeyUp(object sender, KeyEventArgs e)
         {
-            //TODO: Should move this method (and probably other things) into Creator and have Puzzle pass selection (and others) to Creator, so you can keep puzzle generic between creator and solver
+            //TODO: Should move this method (and probably other things) into Creator and command puzzle from there
             if(e.KeyValue >=65 && e.KeyValue <= 90 && !xwd.getCell(selected.row, selected.col).isBlack())
             {
                 xwd.getCell(selected.row, selected.col).Character = (char)e.KeyValue;
                 //Go to the next cell after entering this one
                 selected = nextCell(selected);
-                panel.Refresh();
+                Refresh();
             }
         }
 
-        private void updateSelection(selection sel)
+        public void Select(int x, int y)
         {
+            selection sel = new selection(pixelsToPosition(x, y), selected.dir);
+
             if (xwd.getCell(sel.row, sel.col).isBlack()) return;
             //If the same cell is already selected, change the direction
             if ((sel.row == selected.row && sel.col == selected.col))
@@ -110,7 +102,16 @@ namespace CrosswordApp
             {
                 selected = sel;
             }
-            panel.Refresh();
+            Refresh();
+        }
+
+        public void Blackout(int x, int y)
+        {
+            position pos = pixelsToPosition(x, y);
+            if (selected.asPos() == pos) return;
+
+            xwd.getCell(pos.row, pos.col).toggleBlack();
+            Refresh();
         }
 
         private selection nextCell(selection sel)
@@ -152,7 +153,7 @@ namespace CrosswordApp
             return sel;
         }
 
-        private void panel_Paint(object sender, PaintEventArgs e)
+        private void puzzle_Paint(object sender, PaintEventArgs e)
         {
             xwd.updateNumbers();
 

@@ -38,18 +38,9 @@ namespace CrosswordApp
         /// </summary>
         private void InitializeComponent()
         {
-            panel = new Panel();
             SuspendLayout();
-            // 
-            // panel
-            // 
-            panel.Dock = DockStyle.Fill;
-            panel.Location = new Point(0, 0);
-            panel.Name = "panel";
-            panel.Size = new Size(400, 400);
-            panel.TabIndex = 0;
-            panel.Paint += panel_Paint;
-            panel.MouseUp += Puzzle_Click;
+            
+            this.Paint += puzzle_Paint;
             // 
             // Puzzle
             // 

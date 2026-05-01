@@ -15,11 +15,16 @@ namespace CrosswordApp
         {
             this.app = app;
             InitializeComponent();
+
+            //TODO: Add code to load from cache if available
+            //Otherwise, load with null (default empty crossword)
+            puzzlePanel.Controls.Add(new Puzzle());
         }
 
         private void goToMenu_Click(object sender, EventArgs e)
         {
             app.GoToMenu();
         }
+
     }
 }
