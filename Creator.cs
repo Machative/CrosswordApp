@@ -16,7 +16,7 @@ namespace CrosswordApp
         Puzzle puzzle;
         XWDObject xwdObj;
 
-        String saveFileName;
+        String saveFileName = "";
         public Creator(XWDApp app)
         {
             this.app = app;
@@ -27,6 +27,7 @@ namespace CrosswordApp
             xwdObj = new XWDObject(15, 15);
             puzzle = new Puzzle(xwdObj);
             puzzle.MouseUp += puzzle_Click;
+            puzzle.OnUpdateSelection += new Puzzle.SelectionUpdateHandler(onSelectionUpdate);
             puzzlePanel.Controls.Add(puzzle);
             puzzlePanel.KeyUp += puzzle_KeyUp;
         }
@@ -52,6 +53,11 @@ namespace CrosswordApp
             }
         }
 
+        private void onSelectionUpdate(object sender, EventArgs e)
+        {
+            clueInput.Text = puzzle.getSelectedClue();
+        }
+
         private void saveAsBtn_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -59,7 +65,6 @@ namespace CrosswordApp
             saveFileDialog.Title = "Save an XWD File";
             saveFileDialog.ShowDialog();
 
-            
             if(saveFileDialog.FileName != "")
             {
                 saveFileName = saveFileDialog.FileName;
@@ -74,13 +79,16 @@ namespace CrosswordApp
 
         private void saveToFile(string filepath)
         {
-            string[] fileContents = xwdObj.toXWDFile();
-            File.WriteAllText(filepath, String.Empty);
-            using (StreamWriter sw = File.AppendText(saveFileName))
+            if (filepath != "")
             {
-                for (int i = 0; i < fileContents.Length; i++)
+                string[] fileContents = xwdObj.toXWDFile();
+                File.WriteAllText(filepath, String.Empty);
+                using (StreamWriter sw = File.AppendText(saveFileName))
                 {
-                    sw.WriteLine(fileContents[i]);
+                    for (int i = 0; i < fileContents.Length; i++)
+                    {
+                        sw.WriteLine(fileContents[i]);
+                    }
                 }
             }
         }
@@ -111,6 +119,11 @@ namespace CrosswordApp
         private void goToMenu_Click(object sender, EventArgs e)
         {
             app.GoToMenu();
+        }
+
+        private void clueInput_TextChanged(object sender, EventArgs e)
+        {
+            puzzle.updateClue(clueInput.Text);
         }
     }
 }

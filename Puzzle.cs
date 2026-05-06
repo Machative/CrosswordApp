@@ -17,6 +17,8 @@ namespace CrosswordApp
         int cellWidth;
         int cellHeight;
 
+        public delegate void SelectionUpdateHandler(object sender, EventArgs e);
+        public event SelectionUpdateHandler OnUpdateSelection;
         public struct selection
         {
             public int row;
@@ -72,11 +74,20 @@ namespace CrosswordApp
             else loadXWD(obj);
         }
 
+        private void updateSelection(selection sel)
+        {
+            selected = sel;
+            if (OnUpdateSelection == null) return;
+
+            EventArgs args = new EventArgs();
+            OnUpdateSelection(this, args);
+        }
+
         public void loadXWD(XWDObject xwdObj)
         {
             xwd = xwdObj;
 
-            selected = new selection(0, 0, selection.direction.ACROSS);
+            updateSelection(new selection(0, 0, selection.direction.ACROSS));
             cellWidth = this.Width / xwd.getWidth();
             cellHeight = this.Height / xwd.getHeight();
 
@@ -89,7 +100,7 @@ namespace CrosswordApp
             {
                 xwd.getCell(selected.row, selected.col).Character = key;
                 //Go to the next cell after entering this one
-                selected = nextCell(selected);
+                updateSelection(nextCell(selected));
                 Refresh();
             }
         }
@@ -102,12 +113,9 @@ namespace CrosswordApp
             //If the same cell is already selected, change the direction
             if ((sel.row == selected.row && sel.col == selected.col))
             {
-                selected.dir = (selected.dir == selection.direction.ACROSS ? selection.direction.DOWN : selection.direction.ACROSS);
+                sel.dir = (sel.dir == selection.direction.ACROSS ? selection.direction.DOWN : selection.direction.ACROSS);
             }
-            else
-            {
-                selected = sel;
-            }
+            updateSelection(sel);
             Refresh();
         }
 
@@ -157,6 +165,27 @@ namespace CrosswordApp
                 }
             }
             return sel;
+        }
+
+        //Given any selection, return the selection of the starting cell, which holds the clue
+        private selection getClueSelection(selection sel)
+        {
+            return new selection(getSelectionPositions(sel)[0], sel.dir);
+        }
+        public string getSelectedClue()
+        {
+            selection clueSel = getClueSelection(selected);
+            Cell clueCell = xwd.getCell(clueSel.row, clueSel.col);
+            if (clueSel.dir == selection.direction.ACROSS) return clueCell.acrossClue;
+            else return clueCell.downClue;
+        }
+
+        public void updateClue(string newClue)
+        {
+            selection clueSel = getClueSelection(selected);
+            Cell clueCell = xwd.getCell(clueSel.row, clueSel.col);
+            if (clueSel.dir == selection.direction.ACROSS) clueCell.acrossClue = newClue;
+            else clueCell.downClue = newClue;
         }
 
         private void puzzle_Paint(object sender, PaintEventArgs e)

@@ -95,6 +95,7 @@ namespace CrosswordApp
             this.clueInput.Name = "clueInput";
             this.clueInput.Size = new System.Drawing.Size(760, 31);
             this.clueInput.TabIndex = 4;
+            this.clueInput.TextChanged += new System.EventHandler(this.clueInput_TextChanged);
             // 
             // clueLabel
             // 
