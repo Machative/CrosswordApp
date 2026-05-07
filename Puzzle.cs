@@ -16,6 +16,7 @@ namespace CrosswordApp
         XWDObject xwd;
         int cellWidth;
         int cellHeight;
+        private bool doDisplaySolution = false;
 
         public delegate void SelectionUpdateHandler(object sender, EventArgs e);
         public event SelectionUpdateHandler OnUpdateSelection;
@@ -66,9 +67,10 @@ namespace CrosswordApp
         }
 
         selection selected;
-        public Puzzle(XWDObject obj=null)
+        public Puzzle(XWDObject obj = null, bool displaySolution= false)
         {
             InitializeComponent();
+            doDisplaySolution = displaySolution;
 
             if (obj == null) loadXWD(new XWDObject(15, 15));
             else loadXWD(obj);
@@ -83,6 +85,15 @@ namespace CrosswordApp
             OnUpdateSelection(this, args);
         }
 
+        public void displaySolution()
+        {
+            doDisplaySolution = true;
+        }
+        public void displayGuess()
+        {
+            doDisplaySolution = false;
+        }
+
         public void loadXWD(XWDObject xwdObj)
         {
             xwd = xwdObj;
@@ -94,11 +105,22 @@ namespace CrosswordApp
             Refresh();
         }
 
-        public void EnterChar(char key)
+        public void EnterSolutionChar(char key)
         {
             if (!xwd.getCell(selected.row, selected.col).isBlack()) //shouldn't ever be able to select blacked out cell, but just in case
             {
-                xwd.getCell(selected.row, selected.col).Character = key;
+                xwd.getCell(selected.row, selected.col).SolutionChar = key;
+                //Go to the next cell after entering this one
+                updateSelection(nextCell(selected));
+                Refresh();
+            }
+        }
+
+        public void EnterGuessChar(char key)
+        {
+            if (!xwd.getCell(selected.row, selected.col).isBlack()) //shouldn't ever be able to select blacked out cell, but just in case
+            {
+                xwd.getCell(selected.row, selected.col).GuessChar = key;
                 //Go to the next cell after entering this one
                 updateSelection(nextCell(selected));
                 Refresh();
@@ -236,7 +258,14 @@ namespace CrosswordApp
                     else
                     {
                         if(curCell.ClueNum>0) g.DrawString(""+curCell.ClueNum, clueNumFont, new SolidBrush(Color.Black), 1 + (col * cellWidth), 1 + (row * cellHeight));
-                        if (curCell.Character >= 65 && curCell.Character <= 90) g.DrawString(""+curCell.Character, charFont, new SolidBrush(Color.Black), 3 + (col * cellWidth), 3 + (row * cellHeight));
+                        if (doDisplaySolution)
+                        {
+                            if (curCell.SolutionChar >= 65 && curCell.SolutionChar <= 90) g.DrawString("" + curCell.SolutionChar, charFont, new SolidBrush(Color.Black), 3 + (col * cellWidth), 3 + (row * cellHeight));
+                        }
+                        else
+                        {
+                            if(curCell.GuessChar >= 65 && curCell.GuessChar <= 90) g.DrawString("" + curCell.GuessChar, charFont, new SolidBrush(Color.Black), 3 + (col * cellWidth), 3 + (row * cellHeight));
+                        }
                     }
 
                 }

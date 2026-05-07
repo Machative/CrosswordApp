@@ -25,7 +25,7 @@ namespace CrosswordApp
             //TODO: Add code to load from cache if available
             //Otherwise, load with default 15x15
             xwdObj = new XWDObject(15, 15);
-            puzzle = new Puzzle(xwdObj);
+            puzzle = new Puzzle(xwdObj,true);
             puzzle.MouseUp += puzzle_Click;
             puzzle.OnUpdateSelection += new Puzzle.SelectionUpdateHandler(onSelectionUpdate);
             puzzlePanel.Controls.Add(puzzle);
@@ -49,7 +49,7 @@ namespace CrosswordApp
         {
             if (e.KeyValue >= 65 && e.KeyValue <= 90)
             {
-                puzzle.EnterChar((char)e.KeyValue);
+                puzzle.EnterSolutionChar((char)e.KeyValue);
             }
         }
 

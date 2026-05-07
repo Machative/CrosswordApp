@@ -43,7 +43,7 @@ namespace CrosswordApp
             {
                 for(int col = 0; col < height; col++)
                 {
-                    if(!grid[row,col].isBlack() && (row==0 || col == 0 || grid[row - 1,col].Character=='~' || grid[row,col-1].Character=='~'))
+                    if(!grid[row,col].isBlack() && (row==0 || col == 0 || grid[row - 1,col].SolutionChar=='~' || grid[row,col-1].SolutionChar=='~'))
                     {
                         grid[row,col].ClueNum = ++numClues;
                     }
@@ -81,10 +81,14 @@ namespace CrosswordApp
 
         /*File Format:
          * height, width
-         * row 1 characters (e.g A,B,A,C,U,S,~,C,R,E,A,T,O,R,~,~,E,G,G)
-         * row 2 characters
+         * row 1 characters - puzzle
+         * row 2 characters - puzzle
          * ...
-         * row n characters
+         * row n characters - puzzle
+         * row 1 characters - solution
+         * row 2 characters - solution
+         * ...
+         * row n characters - solution
          * 1 across clue
          * 1 down clue
          * 2 across clue
@@ -106,16 +110,23 @@ namespace CrosswordApp
                     newXWD.grid[i - 1, j] = new Cell(char.Parse(contents[i].Split(',')[j]));
                 }
             }
+            for (int i = 1+height; i <= height*2; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    newXWD.grid[i - 1, j].GuessChar = char.Parse(contents[i].Split(',')[j]);
+                }
+            }
             newXWD.updateNumbers();
             for(int i = 1; i <= newXWD.numClues*2; i++)
             {
                 if((i) % 2 == 0)
                 {
-                    newXWD.getCellByNumber((i) / 2).downClue = contents[i+height];
+                    newXWD.getCellByNumber((i) / 2).downClue = contents[i+height*2];
                 }
                 else
                 {
-                    newXWD.getCellByNumber((i + 1) / 2).acrossClue = contents[i+height];
+                    newXWD.getCellByNumber((i + 1) / 2).acrossClue = contents[i+height*2];
                 }                
             }
             return newXWD;
@@ -130,15 +141,25 @@ namespace CrosswordApp
                 string rowChars = "";
                 for(int j = 0; j < width; j++)
                 {
-                    rowChars += grid[i - 1, j].Character;
+                    rowChars += grid[i - 1, j].SolutionChar;
                     if (j < width - 1) rowChars += ',';
                 }
                 xwdFile[i] = rowChars;
             }
-            for(int i = 1; i<numClues*2;i++)
+            for (int i = height+1; i <= height*2; i++)
             {
-                if(i%2==1) xwdFile[height + i] = getCellByNumber((i+1) / 2).acrossClue;
-                else xwdFile[height + i] = getCellByNumber(i / 2).downClue;
+                string rowChars = "";
+                for (int j = 0; j < width; j++)
+                {
+                    rowChars += grid[i - 1, j].GuessChar;
+                    if (j < width - 1) rowChars += ',';
+                }
+                xwdFile[i] = rowChars;
+            }
+            for (int i = 1; i<numClues*2;i++)
+            {
+                if(i%2==1) xwdFile[2*height + i] = getCellByNumber((i+1) / 2).acrossClue;
+                else xwdFile[2*height + i] = getCellByNumber(i / 2).downClue;
             }
             return xwdFile;
         }

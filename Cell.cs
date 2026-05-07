@@ -7,28 +7,30 @@ namespace CrosswordApp
     public class Cell
     {
         public int ClueNum;
-        public char Character;
+        public char SolutionChar;
+        public char GuessChar;
         public String acrossClue;
         public String downClue;
         public Cell(char ch = ' ', String aClue = "", String dClue = "", int num=-1)
         {
             ClueNum = num;
-            Character = ch;
+            SolutionChar = ch;
+            GuessChar = '-';
             acrossClue = aClue;
             downClue = dClue;
         }
         public bool isBlack()
         {
-            return Character == '~';
+            return SolutionChar == '~';
         }
         public void blackOut()
         {
-            Character = '~';
+            SolutionChar = '~';
         }
         public void toggleBlack()
         {
-            if (Character == '~') Character = ' ';
-            else Character = '~';
+            if (SolutionChar == '~') SolutionChar = ' ';
+            else SolutionChar = '~';
         }
     }
 }
