@@ -30,6 +30,9 @@ namespace CrosswordApp
             puzzle.OnUpdateSelection += new Puzzle.SelectionUpdateHandler(onSelectionUpdate);
             puzzlePanel.Controls.Add(puzzle);
             puzzlePanel.KeyUp += puzzle_KeyUp;
+
+            clueInput.Text = puzzle.getSelectedClue();
+            selectedWord.Text = puzzle.getSelectedWord();
         }
 
         private void puzzle_Click(object sender, MouseEventArgs e)
@@ -56,6 +59,7 @@ namespace CrosswordApp
         private void onSelectionUpdate(object sender, EventArgs e)
         {
             clueInput.Text = puzzle.getSelectedClue();
+            selectedWord.Text = puzzle.getSelectedWord();
         }
 
         private void saveAsBtn_Click(object sender, EventArgs e)

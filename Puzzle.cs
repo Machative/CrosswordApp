@@ -74,6 +74,7 @@ namespace CrosswordApp
 
             if (obj == null) loadXWD(new XWDObject(15, 15));
             else loadXWD(obj);
+
         }
 
         private void updateSelection(selection sel)
@@ -201,7 +202,16 @@ namespace CrosswordApp
             if (clueSel.dir == selection.direction.ACROSS) return clueCell.acrossClue;
             else return clueCell.downClue;
         }
-
+        public string getSelectedWord()
+        {
+            string word = "";
+            selection clueSel = getClueSelection(selected);
+            Cell clueCell = xwd.getCell(clueSel.row, clueSel.col);
+            word += clueCell.ClueNum;
+            if (selected.dir == selection.direction.ACROSS) word += " Across";
+            else word += " Down";
+            return word;
+        }
         public void updateClue(string newClue)
         {
             selection clueSel = getClueSelection(selected);
@@ -230,6 +240,8 @@ namespace CrosswordApp
             {
                 g.DrawLine(gridLinesPen, cellWidth * col, 0, cellWidth * col, gridHeight);
             }
+
+
 
             //Draw cells
             position[] selectedCells = getSelectionPositions(selected);

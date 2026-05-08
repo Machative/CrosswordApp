@@ -114,7 +114,7 @@ namespace CrosswordApp
             {
                 for (int j = 0; j < width; j++)
                 {
-                    newXWD.grid[i - 1, j].GuessChar = char.Parse(contents[i].Split(',')[j]);
+                    newXWD.grid[i - height - 1, j].GuessChar = char.Parse(contents[i].Split(',')[j]);
                 }
             }
             newXWD.updateNumbers();
@@ -133,7 +133,7 @@ namespace CrosswordApp
         }
         public string[] toXWDFile()
         {
-            int lines = 1 + height + (2 * numClues);
+            int lines = 1 + 2*height + 2*numClues;
             string[] xwdFile = new string[lines];
             xwdFile[0] = height + "," + width;
             for(int i = 1; i <= height; i++)
@@ -151,12 +151,12 @@ namespace CrosswordApp
                 string rowChars = "";
                 for (int j = 0; j < width; j++)
                 {
-                    rowChars += grid[i - 1, j].GuessChar;
+                    rowChars += grid[i - height - 1, j].GuessChar;
                     if (j < width - 1) rowChars += ',';
                 }
                 xwdFile[i] = rowChars;
             }
-            for (int i = 1; i<numClues*2;i++)
+            for (int i = 1; i<=numClues*2;i++)
             {
                 if(i%2==1) xwdFile[2*height + i] = getCellByNumber((i+1) / 2).acrossClue;
                 else xwdFile[2*height + i] = getCellByNumber(i / 2).downClue;

@@ -40,6 +40,11 @@ namespace CrosswordApp
         {
             goToMenu = new Button();
             puzzlePanel = new Panel();
+            saveBtn = new Button();
+            saveAsBtn = new Button();
+            loadBtn = new Button();
+            selectedWord = new Label();
+            selectedClue = new Label();
             SuspendLayout();
             // 
             // goToMenu
@@ -59,12 +64,65 @@ namespace CrosswordApp
             puzzlePanel.Size = new Size(450, 450);
             puzzlePanel.TabIndex = 2;
             // 
+            // saveBtn
+            // 
+            saveBtn.Location = new Point(127, 2);
+            saveBtn.Name = "saveBtn";
+            saveBtn.Size = new Size(74, 21);
+            saveBtn.TabIndex = 6;
+            saveBtn.Text = "Save";
+            saveBtn.UseVisualStyleBackColor = true;
+            saveBtn.Click += saveBtn_Click;
+            // 
+            // saveAsBtn
+            // 
+            saveAsBtn.Location = new Point(207, 2);
+            saveAsBtn.Name = "saveAsBtn";
+            saveAsBtn.Size = new Size(76, 21);
+            saveAsBtn.TabIndex = 7;
+            saveAsBtn.Text = "Save As";
+            saveAsBtn.UseVisualStyleBackColor = true;
+            saveAsBtn.Click += saveAsBtn_Click;
+            // 
+            // loadBtn
+            // 
+            loadBtn.Location = new Point(307, 1);
+            loadBtn.Name = "loadBtn";
+            loadBtn.Size = new Size(60, 21);
+            loadBtn.TabIndex = 8;
+            loadBtn.Text = "Load";
+            loadBtn.UseVisualStyleBackColor = true;
+            loadBtn.Click += loadBtn_Click;
+            // 
+            // selectedWord
+            // 
+            selectedWord.AutoSize = true;
+            selectedWord.Location = new Point(548, 52);
+            selectedWord.Name = "selectedWord";
+            selectedWord.Size = new Size(83, 15);
+            selectedWord.TabIndex = 10;
+            selectedWord.Text = "Selected Word";
+            // 
+            // selectedClue
+            // 
+            selectedClue.AutoSize = true;
+            selectedClue.Location = new Point(548, 77);
+            selectedClue.Name = "selectedClue";
+            selectedClue.Size = new Size(78, 15);
+            selectedClue.TabIndex = 11;
+            selectedClue.Text = "Selected Clue";
+            // 
             // Solver
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(selectedClue);
+            Controls.Add(selectedWord);
             Controls.Add(puzzlePanel);
             Controls.Add(goToMenu);
+            Controls.Add(loadBtn);
+            Controls.Add(saveAsBtn);
+            Controls.Add(saveBtn);
             Name = "Solver";
             Size = new Size(1189, 719);
             ResumeLayout(false);
@@ -75,5 +133,10 @@ namespace CrosswordApp
 
         private Button goToMenu;
         private Panel puzzlePanel;
+        private Button saveBtn;
+        private Button saveAsBtn;
+        private Button loadBtn;
+        private Label selectedWord;
+        private Label selectedClue;
     }
 }

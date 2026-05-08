@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,8 +39,26 @@ namespace CrosswordApp
         }
         public void OpenSolver()
         {
-            mainPanel.Controls.Clear();
-            mainPanel.Controls.Add(new Solver(this));
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "XWD File|*.xwd";
+            openFileDialog.Title = "Load an XWD File";
+
+            XWDObject xwdObj;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                String[] fileContents;
+                var fileStream = openFileDialog.OpenFile();
+                using (StreamReader reader = new StreamReader(fileStream))
+                {
+                    fileContents = reader.ReadToEnd().Split("\r\n");
+                }
+
+                xwdObj = XWDObject.loadFromFile(fileContents);
+
+                mainPanel.Controls.Clear();
+                mainPanel.Controls.Add(new Solver(this, xwdObj));
+            }
         }
         public void GoToMenu()
         {
