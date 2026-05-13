@@ -16,9 +16,12 @@ namespace CrosswordApp
         XWDObject xwdObj;
 
         String saveFileName = "";
-        public Solver(XWDApp app, XWDObject obj)
+        public Solver(XWDApp app, XWDObject obj, string savefile)
         {
             this.app = app;
+            saveFileName = savefile;
+            xwdObj = obj;
+
             InitializeComponent();
 
             puzzle = new Puzzle(obj,false);

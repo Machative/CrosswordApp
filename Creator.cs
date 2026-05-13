@@ -78,6 +78,18 @@ namespace CrosswordApp
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
+            if (saveFileName == "")
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "XWD File|*.xwd";
+                saveFileDialog.Title = "Save an XWD File";
+                saveFileDialog.ShowDialog();
+
+                if (saveFileDialog.FileName != "")
+                {
+                    saveFileName = saveFileDialog.FileName;
+                }
+            }
             saveToFile(saveFileName);
         }
 
