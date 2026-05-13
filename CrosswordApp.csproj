@@ -2,11 +2,9 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows7.0</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
-	<UseWinFormsOutOfProcDesigner>true</UseWinFormsOutOfProcDesigner>
-	<AnalysisLevel>preview-recommended</AnalysisLevel>
   </PropertyGroup>
 
 </Project>
