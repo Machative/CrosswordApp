@@ -20,18 +20,16 @@ namespace CrosswordApp
         {
             this.app = app;
             saveFileName = savefile;
-            xwdObj = obj;
 
             InitializeComponent();
 
-            puzzle = new Puzzle(obj,false);
+            puzzle = new Puzzle();
             puzzle.MouseUp += puzzle_Click;
             puzzle.OnUpdateSelection += new Puzzle.SelectionUpdateHandler(onSelectionUpdate);
             puzzlePanel.Controls.Add(puzzle);
             puzzlePanel.KeyUp += puzzle_KeyUp;
 
-            selectedClue.Text = puzzle.getSelectedClue();
-            selectedWord.Text = puzzle.getSelectedWord();
+            loadXWD(obj);
         }
 
         private void puzzle_Click(object sender, MouseEventArgs e)
@@ -90,7 +88,26 @@ namespace CrosswordApp
                 }
             }
         }
+        private void loadXWD(XWDObject obj)
+        {
+            xwdObj = obj;
+            puzzle.loadXWD(xwdObj);
 
+            selectedClue.Text = puzzle.getSelectedClue();
+            selectedWord.Text = puzzle.getSelectedWord();
+
+            Dictionary<int, string> acrossClues = xwdObj.getAcrossClues();
+            for(int i = 1; i <= acrossClues.Count; i++)
+            {
+                acrossClueBox.Items.Insert(i, acrossClues[i]);
+            }
+
+            Dictionary<int, string> downClues = xwdObj.getDownClues();
+            for (int i = 1; i <= downClues.Count; i++)
+            {
+                downClueBox.Items.Insert(i, downClues[i]);
+            }
+        }
         private void loadBtn_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -106,8 +123,7 @@ namespace CrosswordApp
                     fileContents = reader.ReadToEnd().Split("\r\n");
                 }
 
-                xwdObj = XWDObject.loadFromFile(fileContents);
-                puzzle.loadXWD(xwdObj);
+                loadXWD(XWDObject.loadFromFile(fileContents));
 
                 saveFileName = openFileDialog.FileName;
             }

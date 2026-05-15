@@ -73,6 +73,26 @@ namespace CrosswordApp
         {
             return height;
         }
+        public Dictionary<int,string> getAcrossClues()
+        {
+            Dictionary<int, string> acrossClues = new Dictionary<int, string>();
+            for(int i = 1; i <= numClues; i++)
+            {
+                string curClue = getCellByNumber(i).acrossClue;
+                if (curClue != "") acrossClues[i] = curClue;
+            }
+            return acrossClues;
+        }
+        public Dictionary<int, string> getDownClues()
+        {
+            Dictionary<int, string> downClues = new Dictionary<int, string>();
+            for (int i = 1; i <= numClues; i++)
+            {
+                string curClue = getCellByNumber(i).downClue;
+                if (curClue != "") downClues[i] = curClue;
+            }
+            return downClues;
+        }
         public Cell getCell(int row, int col)
         {
             if (row < height && col < width && row >= 0 && col >= 0) return grid[row, col];
