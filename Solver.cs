@@ -16,6 +16,10 @@ namespace CrosswordApp
         XWDObject xwdObj;
 
         String saveFileName = "";
+
+        //<clue number, box index>
+        Dictionary<int, int> acrossClueMap;
+        Dictionary<int, int> downClueMap;
         public Solver(XWDApp app, XWDObject obj, string savefile)
         {
             this.app = app;
@@ -24,12 +28,12 @@ namespace CrosswordApp
             InitializeComponent();
 
             puzzle = new Puzzle();
+            loadXWD(obj);
+
             puzzle.MouseUp += puzzle_Click;
             puzzle.OnUpdateSelection += new Puzzle.SelectionUpdateHandler(onSelectionUpdate);
             puzzlePanel.Controls.Add(puzzle);
             puzzlePanel.KeyUp += puzzle_KeyUp;
-
-            loadXWD(obj);
         }
 
         private void puzzle_Click(object sender, MouseEventArgs e)
@@ -53,6 +57,18 @@ namespace CrosswordApp
         {
             selectedClue.Text = puzzle.getSelectedClue();
             selectedWord.Text = puzzle.getSelectedWord();
+
+            (int clueNum, Puzzle.selection.direction selectionDir) = puzzle.getSelectedClueNum();
+            if(selectionDir == Puzzle.selection.direction.ACROSS)
+            {
+                acrossClueBox.SelectedIndex = acrossClueMap[clueNum];
+                downClueBox.SelectedIndex = -1; //TODO: how to deselect/defocus the other box?
+            }
+            else
+            {
+                downClueBox.SelectedIndex = downClueMap[clueNum];
+                acrossClueBox.SelectedIndex = -1;
+            }
         }
 
         private void saveAsBtn_Click(object sender, EventArgs e)
@@ -96,16 +112,25 @@ namespace CrosswordApp
             selectedClue.Text = puzzle.getSelectedClue();
             selectedWord.Text = puzzle.getSelectedWord();
 
-            Dictionary<int, string> acrossClues = xwdObj.getAcrossClues();
-            for(int i = 1; i <= acrossClues.Count; i++)
-            {
-                acrossClueBox.Items.Insert(i, acrossClues[i]);
-            }
+            acrossClueMap = new Dictionary<int, int>();
+            downClueMap = new Dictionary<int, int>();
 
-            Dictionary<int, string> downClues = xwdObj.getDownClues();
-            for (int i = 1; i <= downClues.Count; i++)
+            //Create naturally indexed clue dictionaries and fill boxes
+            Dictionary<int, string> acrossClues = xwdObj.getAcrossClues();
+            int ind = 0;
+            foreach(int i in acrossClues.Keys)
             {
-                downClueBox.Items.Insert(i, downClues[i]);
+                acrossClueMap[i] = ind;
+                ind++;
+                acrossClueBox.Items.Add(i + ". " + acrossClues[i]);
+            }
+            Dictionary<int, string> downClues = xwdObj.getDownClues();
+            ind = 0;
+            foreach (int i in downClues.Keys)
+            {
+                downClueMap[i] = ind;
+                ind++;
+                downClueBox.Items.Add(i + ". " + downClues[i]);
             }
         }
         private void loadBtn_Click(object sender, EventArgs e)

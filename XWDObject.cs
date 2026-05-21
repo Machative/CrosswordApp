@@ -43,13 +43,22 @@ namespace CrosswordApp
             {
                 for(int col = 0; col < height; col++)
                 {
-                    if(!grid[row,col].isBlack() && (row==0 || col == 0 || grid[row - 1,col].SolutionChar=='~' || grid[row,col-1].SolutionChar=='~'))
+                    grid[row, col].ClueNum = -1;
+                    if (!grid[row,col].isBlack() && (row==0 || grid[row - 1,col].SolutionChar=='~'))
                     {
                         grid[row,col].ClueNum = ++numClues;
                     }
                     else
                     {
-                        grid[row, col].ClueNum = -1;
+                        grid[row, col].downClue = null;
+                    }
+                    if(!grid[row,col].isBlack() && (col==0 || grid[row, col - 1].SolutionChar == '~'))
+                    {
+                        if(grid[row,col].ClueNum==-1) grid[row, col].ClueNum = ++numClues;
+                    }
+                    else
+                    {
+                        grid[row, col].acrossClue = null;
                     }
                 }
             }
@@ -79,7 +88,7 @@ namespace CrosswordApp
             for(int i = 1; i <= numClues; i++)
             {
                 string curClue = getCellByNumber(i).acrossClue;
-                if (curClue != "") acrossClues[i] = curClue;
+                if (curClue != null) acrossClues[i] = curClue;
             }
             return acrossClues;
         }
@@ -89,7 +98,7 @@ namespace CrosswordApp
             for (int i = 1; i <= numClues; i++)
             {
                 string curClue = getCellByNumber(i).downClue;
-                if (curClue != "") downClues[i] = curClue;
+                if (curClue != null) downClues[i] = curClue;
             }
             return downClues;
         }
@@ -149,6 +158,7 @@ namespace CrosswordApp
                     newXWD.getCellByNumber((i + 1) / 2).acrossClue = contents[i+height*2];
                 }                
             }
+            newXWD.updateNumbers();
             return newXWD;
         }
         public string[] toXWDFile()

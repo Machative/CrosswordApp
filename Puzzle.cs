@@ -202,6 +202,12 @@ namespace CrosswordApp
             if (clueSel.dir == selection.direction.ACROSS) return clueCell.acrossClue;
             else return clueCell.downClue;
         }
+        public (int, selection.direction) getSelectedClueNum()
+        {
+            selection clueSel = getClueSelection(selected);
+            Cell clueCell = xwd.getCell(clueSel.row, clueSel.col);
+            return (clueCell.ClueNum, selected.dir);
+        }
         public string getSelectedWord()
         {
             string word = "";
@@ -347,7 +353,12 @@ namespace CrosswordApp
         }
         private position pixelsToPosition(int x, int y)
         {
-            return new position(y / cellHeight, x / cellWidth);
+            position pos = new position(y / cellHeight, x / cellWidth);
+            //Ensure position is within bounds. Sometimes edge clicks can be picked up by puzzle panel but be outside the grid
+            //TODO: Ideally the clicking bounds should be more properly restricted, but who cares
+            if (pos.col >= xwd.getWidth()) pos.col = xwd.getWidth() - 1;
+            if (pos.row >= xwd.getHeight()) pos.row = xwd.getHeight() - 1;
+            return pos;
         }
     }
 }

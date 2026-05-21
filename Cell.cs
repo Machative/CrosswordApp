@@ -11,7 +11,7 @@ namespace CrosswordApp
         public char GuessChar;
         public String acrossClue;
         public String downClue;
-        public Cell(char ch = ' ', String aClue = "", String dClue = "", int num=-1)
+        public Cell(char ch = ' ', String aClue = null, String dClue = null, int num=-1)
         {
             ClueNum = num;
             SolutionChar = ch;
