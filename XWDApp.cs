@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 /*
  * TODO:
- * Make the solver show all clues in a scrollable field, with the selected clue displayed above in bold, and automatically scroll to the selected one
  * Add checks that run in the Creator whenever you save that warn you of empty letters and clues
  * Add feedback for buttons like save (i.e. save successful vs. no save location selected), possible error messages for other actions?
  */

@@ -63,10 +63,10 @@ namespace CrosswordApp
             // 
             // puzzlePanel
             // 
-            this.puzzlePanel.Location = new System.Drawing.Point(66, 87);
+            this.puzzlePanel.Location = new System.Drawing.Point(66, 98);
             this.puzzlePanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.puzzlePanel.Name = "puzzlePanel";
-            this.puzzlePanel.Size = new System.Drawing.Size(643, 750);
+            this.puzzlePanel.Size = new System.Drawing.Size(650, 650);
             this.puzzlePanel.TabIndex = 2;
             // 
             // saveBtn
@@ -102,6 +102,7 @@ namespace CrosswordApp
             // selectedWord
             // 
             this.selectedWord.AutoSize = true;
+            this.selectedWord.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.selectedWord.Location = new System.Drawing.Point(783, 87);
             this.selectedWord.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.selectedWord.Name = "selectedWord";
@@ -112,10 +113,11 @@ namespace CrosswordApp
             // selectedClue
             // 
             this.selectedClue.AutoSize = true;
-            this.selectedClue.Location = new System.Drawing.Point(783, 128);
+            this.selectedClue.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.selectedClue.Location = new System.Drawing.Point(783, 115);
             this.selectedClue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.selectedClue.Name = "selectedClue";
-            this.selectedClue.Size = new System.Drawing.Size(117, 25);
+            this.selectedClue.Size = new System.Drawing.Size(126, 25);
             this.selectedClue.TabIndex = 11;
             this.selectedClue.Text = "Selected Clue";
             // 
@@ -123,24 +125,24 @@ namespace CrosswordApp
             // 
             this.acrossClueBox.FormattingEnabled = true;
             this.acrossClueBox.ItemHeight = 25;
-            this.acrossClueBox.Location = new System.Drawing.Point(783, 225);
+            this.acrossClueBox.Location = new System.Drawing.Point(783, 211);
             this.acrossClueBox.Name = "acrossClueBox";
-            this.acrossClueBox.Size = new System.Drawing.Size(240, 504);
+            this.acrossClueBox.Size = new System.Drawing.Size(398, 704);
             this.acrossClueBox.TabIndex = 12;
             // 
             // downClueBox
             // 
             this.downClueBox.FormattingEnabled = true;
             this.downClueBox.ItemHeight = 25;
-            this.downClueBox.Location = new System.Drawing.Point(1080, 225);
+            this.downClueBox.Location = new System.Drawing.Point(1218, 211);
             this.downClueBox.Name = "downClueBox";
-            this.downClueBox.Size = new System.Drawing.Size(257, 504);
+            this.downClueBox.Size = new System.Drawing.Size(416, 704);
             this.downClueBox.TabIndex = 13;
             // 
             // acrossBoxLabel
             // 
             this.acrossBoxLabel.AutoSize = true;
-            this.acrossBoxLabel.Location = new System.Drawing.Point(783, 197);
+            this.acrossBoxLabel.Location = new System.Drawing.Point(783, 183);
             this.acrossBoxLabel.Name = "acrossBoxLabel";
             this.acrossBoxLabel.Size = new System.Drawing.Size(112, 25);
             this.acrossBoxLabel.TabIndex = 14;
@@ -149,7 +151,7 @@ namespace CrosswordApp
             // downBoxLabel
             // 
             this.downBoxLabel.AutoSize = true;
-            this.downBoxLabel.Location = new System.Drawing.Point(1080, 197);
+            this.downBoxLabel.Location = new System.Drawing.Point(1218, 183);
             this.downBoxLabel.Name = "downBoxLabel";
             this.downBoxLabel.Size = new System.Drawing.Size(106, 25);
             this.downBoxLabel.TabIndex = 15;
